@@ -14,6 +14,13 @@ class convert
   void poct();
   void set();
 };
+void str2cpy(char * destination, const char * source)
+{
+  for(int i=0;source[i+1]!='\0';i++)
+    {
+      destination[i]=source[i+2];
+    }
+}
 
 void convert::pdec()
 {
@@ -30,6 +37,7 @@ void convert::poct()
 void convert::set()
 {
   char string[256];
+  char buffer[256];
   printf("wpisz dec 132\nhex 0xffa\n");
   scanf("%s", string);
   if(string[1]=='x')
@@ -38,7 +46,9 @@ void convert::set()
     }
   else if(string[1]=='b')
     {
-      sscanf(string,"%i", &number);
+      str2cpy(buffer,string);
+      printf("\n%s\n",buffer);
+      sscanf(buffer,"%i", &number);
     }
   else
     {
