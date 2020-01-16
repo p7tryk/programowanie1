@@ -13,7 +13,7 @@ class Conversion{
         void HEXnaDEC(string cyfra);
         void BINnaHEX(string cyfra);
         void HEXnaBIN(string cyfra);
-
+  
     private:
     	int lic;
 
