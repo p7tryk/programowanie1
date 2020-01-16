@@ -22,11 +22,16 @@ int main()
     {
       int mode=0;
       int n=0;
-      printf("wybierz opcje\n1 utworz graczy\n2 usun graczy\n3 przesun w gore\n4 przesun w dol\n5 pokaz pozycje\n6 przysun wszystkich w gore\n9 wypisz wszyskich\n10 koniec");
+      printf("wybierz opcje\n1 utworz graczy\n2 usun graczy\n3 przesun w gore\n5 pokaz pozycje\n6 przysun wszystkich w gore\n9 wypisz wszyskich\n10 koniec");
       scanf("%d",&mode);
       switch(mode)
 	{
 	case 1:
+	  if(liczbagraczy!=0)
+	    {
+	      printf("najpierw usun graczy, obecnie %d\n",liczbagraczy);
+	      break;
+	    }
 	  printf("podaj liczbe graczy\n");
 	  scanf("%d",&liczbagraczy);
 	  listagraczy = new gracz[liczbagraczy];
@@ -38,6 +43,7 @@ int main()
 	case 3:
 	  printf("wybierz gracza do przesuniecia od 1 do %d\n",liczbagraczy);
 	  scanf("%d",&n);
+	  n--; //zeby bylo od 1
 	  if(istnieje(liczbagraczy,n))
 	    {
 	      listagraczy[n].idz_gora();
@@ -46,6 +52,7 @@ int main()
 	case 5:
 	  printf("wybierz gracza do wyswietlenia od 1 do %d\n",liczbagraczy);
 	  scanf("%d",&n);
+	  n--; //zeby bylo od 1
 	  if(istnieje(liczbagraczy,n))
 	    {
 	      listagraczy[n].status();
@@ -62,7 +69,7 @@ int main()
 	case 9:
 	  for(int i=0;i<liczbagraczy;i++)
 	    {
-	      printf("gracz %d ",i);
+	      printf("gracz %d ",i+1);
 	      listagraczy[i].status();
 	    }
 	  break;
