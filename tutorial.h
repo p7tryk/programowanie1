@@ -39,8 +39,8 @@ bool convert::superinput()
       printdec();
       break;
     case 2:
-      inputdec(string);
-      prinnbin();
+      //inputdec(string);
+      //printbin();
     default:
       return true;
     }
